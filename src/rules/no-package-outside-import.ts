@@ -26,6 +26,7 @@ export const noPackageOutsideImport: Rule.RuleModule = {
 		docs: {
 			description: "Prevent relative imports that cross a package boundary",
 			recommended: true,
+			url: "https://github.com/SuperKXT/eslint-plugin-monorepo-guard/blob/main/docs/rules/no-package-outside-import.md",
 		},
 		schema: [],
 		messages: {

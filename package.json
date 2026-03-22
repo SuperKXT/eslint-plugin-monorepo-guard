@@ -1,7 +1,7 @@
 {
 	"name": "eslint-plugin-monorepo-guard",
 	"description": "ESLint rules to enforce package boundaries in a monorepo",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": "Saad Khan",
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",

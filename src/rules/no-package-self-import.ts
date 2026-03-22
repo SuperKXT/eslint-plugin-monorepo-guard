@@ -21,6 +21,7 @@ export const noPackageSelfImport: Rule.RuleModule = {
 			description:
 				"Prevent a package from importing itself by name (use relative imports instead)",
 			recommended: true,
+			url: "https://github.com/SuperKXT/eslint-plugin-monorepo-guard/blob/main/docs/rules/no-package-self-import.md",
 		},
 		schema: [],
 		messages: {
