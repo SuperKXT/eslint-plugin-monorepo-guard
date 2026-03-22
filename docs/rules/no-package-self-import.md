@@ -9,32 +9,28 @@ Self-referencing imports create a hidden coupling to the published package inter
 ### Fail
 
 ```js
-// packages/my-package/src/utils.js
+// packages/@pkg/my-package/src/utils.js
 
 // Importing the package itself by its registered name:
-import { helper } from 'my-package'
-import { helper } from 'my-package/src/other-file'
+import { helper } from "@pkg/my-package";
+import { helper } from "@pkg/my-package/src/other-file";
 
-const x = require('my-package')
-const x = require('my-package/deep/path')
-
-// Scoped packages work the same way:
-import { thing } from '@my-org/my-package'
-import { thing } from '@my-org/my-package/utils'
+const x = require("@pkg/my-package");
+const x = require("@pkg/my-package/deep/path");
 ```
 
 ### Pass
 
 ```js
-// packages/my-package/src/utils.js
+// packages/@pkg/my-package/src/utils.js
 
 // Use relative imports to reference other files within the same package:
-import { helper } from './helper'
-import { helper } from '../other-module/helper'
+import { helper } from "./helper";
+import { helper } from "../other-module/helper";
 
 // Importing other packages is fine:
-import { thing } from '@my-org/some-other-package'
-import _ from 'lodash'
+import { thing } from "@pkg/some-other-package";
+import { zod } from "zod";
 ```
 
 ## When to use
@@ -47,16 +43,16 @@ This rule is included in the `recommended` config. To enable it manually:
 
 ```js
 // eslint.config.js
-import monorepoGuard from 'eslint-plugin-monorepo-guard'
+import monorepoGuard from "eslint-plugin-monorepo-guard";
 
 export default [
-  {
-    plugins: { 'monorepo-guard': monorepoGuard },
-    rules: {
-      'monorepo-guard/no-package-self-import': 'error',
-    },
-  },
-]
+	{
+		plugins: { "monorepo-guard": monorepoGuard },
+		rules: {
+			"monorepo-guard/no-package-self-import": "error",
+		},
+	},
+];
 ```
 
 ## How it works

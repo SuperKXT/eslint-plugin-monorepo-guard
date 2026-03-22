@@ -12,10 +12,10 @@ Packages should be isolated units. Using a relative path to reach into a sibling
 // packages/my-package/src/index.js
 
 // Crossing into a sibling package via a relative path:
-import something from '../some-other-package/something.js'
-import { util } from '../../shared/helpers'
+import something from "../some-other-package/something.js";
+import { util } from "../../shared/helpers";
 
-const x = require('../some-other-package/something.js')
+const x = require("../some-other-package/something.js");
 ```
 
 ### Pass
@@ -24,10 +24,10 @@ const x = require('../some-other-package/something.js')
 // packages/my-package/src/index.js
 
 // Import the sibling package by its registered name:
-import something from '@my-monorepo/some-other-package'
-import { util } from '@my-monorepo/shared'
+import something from '@pkg/some-other-package'
+import { util } from '@pkg/shared'
 
-const x = require('@my-monorepo/some-other-package')
+const x = require('@pkg/some-other-package')
 
 // Relative imports within the same package are fine:
 import { helper } from './helper'
@@ -47,16 +47,16 @@ This rule is included in the `recommended` config. To enable it manually:
 
 ```js
 // eslint.config.js
-import monorepoGuard from 'eslint-plugin-monorepo-guard'
+import monorepoGuard from "eslint-plugin-monorepo-guard";
 
 export default [
-  {
-    plugins: { 'monorepo-guard': monorepoGuard },
-    rules: {
-      'monorepo-guard/no-package-outside-import': 'error',
-    },
-  },
-]
+	{
+		plugins: { "monorepo-guard": monorepoGuard },
+		rules: {
+			"monorepo-guard/no-package-outside-import": "error",
+		},
+	},
+];
 ```
 
 ## How it works
