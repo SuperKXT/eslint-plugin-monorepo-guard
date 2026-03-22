@@ -2,14 +2,12 @@ import { dirname } from "node:path";
 
 import type { Rule } from "eslint";
 
-import {
-	findNearestPackage,
-	type PackageInfo,
-} from "../helpers/find-nearest-package.js";
+import { findNearestPackage } from "../helpers/find-nearest-package.js";
+import type { TPackageInfo } from "../helpers/find-nearest-package.js";
 
-const packageCache = new Map<string, PackageInfo | null>();
+const packageCache = new Map<string, TPackageInfo | null>();
 
-const getPackage = (fileDir: string): PackageInfo | null => {
+const getPackage = (fileDir: string): TPackageInfo | null => {
 	if (!packageCache.has(fileDir)) {
 		packageCache.set(fileDir, findNearestPackage(fileDir));
 	}

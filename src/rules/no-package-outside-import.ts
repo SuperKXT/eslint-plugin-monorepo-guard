@@ -2,10 +2,8 @@ import { dirname, resolve } from "node:path";
 
 import type { Rule } from "eslint";
 
-import {
-	findNearestPackage,
-	type PackageInfo,
-} from "../helpers/find-nearest-package.js";
+import { findNearestPackage } from "../helpers/find-nearest-package.js";
+import type { TPackageInfo } from "../helpers/find-nearest-package.js";
 
 const scopedRegExp = /^@[^/]+\/[^/]+/u;
 const externalModuleRegExp = /^\w/u;
@@ -13,9 +11,9 @@ const externalModuleRegExp = /^\w/u;
 const isExternal = (name: string): boolean =>
 	scopedRegExp.test(name) || externalModuleRegExp.test(name);
 
-const packageCache = new Map<string, PackageInfo | null>();
+const packageCache = new Map<string, TPackageInfo | null>();
 
-const getPackage = (fileDir: string): PackageInfo | null => {
+const getPackage = (fileDir: string): TPackageInfo | null => {
 	if (!packageCache.has(fileDir)) {
 		packageCache.set(fileDir, findNearestPackage(fileDir));
 	}
@@ -42,7 +40,7 @@ export const noPackageOutsideImport: Rule.RuleModule = {
 
 			const importBase = dirname(importPath);
 			if (importBase === ".") return; // Same-directory import, always within the package
-			if (!/^\./u.test(importBase)) return; // Not a relative path
+			if (!importBase.startsWith(".")) return; // Not a relative path
 
 			const filename = context.filename;
 			const fileDir = dirname(filename);

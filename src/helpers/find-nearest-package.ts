@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
-export type PackageInfo = {
+export type TPackageInfo = {
 	path: string;
 	name: string;
 };
@@ -10,7 +10,7 @@ export type PackageInfo = {
  * Walk up the directory tree from `startDir` to find the nearest package.json.
  * Returns the directory path and package name, or null if none is found.
  */
-export const findNearestPackage = (startDir: string): PackageInfo | null => {
+export const findNearestPackage = (startDir: string): TPackageInfo | null => {
 	let dir = startDir;
 
 	while (true) {

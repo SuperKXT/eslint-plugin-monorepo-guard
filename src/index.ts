@@ -1,6 +1,7 @@
 import type { Linter, Rule } from "eslint";
 
 import pkg from "../package.json" with { type: "json" };
+
 import { noPackageOutsideImport } from "./rules/no-package-outside-import.js";
 import { noPackageSelfImport } from "./rules/no-package-self-import.js";
 
@@ -32,4 +33,5 @@ const configs = {
 
 export const monorepoGuard = { ...plugin, configs };
 
+// eslint-disable-next-line import-x/no-default-export -- required for ESLint --plugin CLI flag
 export default monorepoGuard;

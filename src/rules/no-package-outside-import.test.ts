@@ -2,12 +2,13 @@ import tsParser from "@typescript-eslint/parser";
 import { RuleTester } from "eslint";
 import { beforeEach, describe, vi } from "vitest";
 
-vi.mock("../helpers/find-nearest-package.js", () => ({
+import { findNearestPackage } from "../helpers/find-nearest-package.js";
+
+import { noPackageOutsideImport } from "./no-package-outside-import.js";
+
+vi.mock(import("../helpers/find-nearest-package.js"), () => ({
 	findNearestPackage: vi.fn(),
 }));
-
-import { findNearestPackage } from "../helpers/find-nearest-package.js";
-import { noPackageOutsideImport } from "./no-package-outside-import.js";
 
 const mockFindNearestPackage = vi.mocked(findNearestPackage);
 
