@@ -11,9 +11,14 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./build/index.d.ts",
-			"import": "./build/index.js",
-			"require": "./build/index.cjs"
+			"import": {
+				"types": "./build/index.d.ts",
+				"default": "./build/index.js"
+			},
+			"require": {
+				"types": "./build/index.d.cts",
+				"default": "./build/index.cjs"
+			}
 		}
 	},
 	"main": "./build/index.cjs",
@@ -26,7 +31,7 @@
 		"typecheck": "tsc --noEmit",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"prepublishOnly": "npm run typecheck && npm run build && npm test"
+		"prepublishOnly": "pnpm typecheck && pnpm build && pnpm test"
 	},
 	"peerDependencies": {
 		"eslint": ">=9.0.0"

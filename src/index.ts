@@ -1,5 +1,6 @@
 import type { Linter, Rule } from "eslint";
 
+import pkg from "../package.json" with { type: "json" };
 import { noPackageOutsideImport } from "./rules/no-package-outside-import.js";
 import { noPackageSelfImport } from "./rules/no-package-self-import.js";
 
@@ -8,7 +9,13 @@ const rules = {
 	"no-package-self-import": noPackageSelfImport,
 } satisfies Record<string, Rule.RuleModule>;
 
-const plugin = { rules } as const;
+const plugin = {
+	meta: {
+		name: "eslint-plugin-monorepo-guard",
+		version: pkg.version,
+	},
+	rules,
+} as const;
 
 const recommendedRules = {
 	"monorepo-guard/no-package-outside-import": "error",

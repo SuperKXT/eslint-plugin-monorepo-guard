@@ -4,7 +4,7 @@ ESLint rules to enforce package boundaries in a monorepo.
 
 Requires:
 
-- **ESLint** flat config
+- **ESLint** V9 or later (flat config)
 - Node.js `^18.18.0 || ^20.9.0 || >=21.1.0`
 
 ## Rules
