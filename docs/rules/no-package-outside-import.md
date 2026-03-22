@@ -1,4 +1,4 @@
-# Prevent relative imports outside of a monorepo package (`no-relative-import-outside-package`)
+# Prevent relative imports outside of a monorepo package (`no-package-outside-import`)
 
 This rule enforces package and workspace boundaries in a monorepo by preventing relative imports that traverse above the nearest `package.json`. It works with any monorepo tool — Yarn Workspaces, npm Workspaces, pnpm Workspaces, Nx, Lerna, and others.
 
@@ -39,7 +39,7 @@ import type { SomeType } from '../some-other-package'
 
 ## When to use
 
-Enable this rule across all packages in your monorepo. Pair it with [`no-self-package-import`](./no-self-package-import.md) to also prevent a package from importing itself by name.
+Enable this rule across all packages in your monorepo. Pair it with [`no-package-self-import`](./no-package-self-import.md) to also prevent a package from importing itself by name.
 
 ## Configuration
 
@@ -53,7 +53,7 @@ export default [
   {
     plugins: { 'monorepo-guard': monorepoGuard },
     rules: {
-      'monorepo-guard/no-relative-import-outside-package': 'error',
+      'monorepo-guard/no-package-outside-import': 'error',
     },
   },
 ]

@@ -1,28 +1,25 @@
-import type { Linter, Rule } from 'eslint'
+import type { Linter, Rule } from "eslint";
 
-import noDisableMonorepoNoRelativeRule from './rules/no-disable-monorepo-no-relative-rule.js'
-import noRelativeImportOutsidePackage from './rules/no-relative-import-outside-package.js'
-import noSelfPackageImport from './rules/no-self-package-import.js'
+import { noPackageOutsideImport } from "./rules/no-package-outside-import.js";
+import { noPackageSelfImport } from "./rules/no-package-self-import.js";
 
 const rules = {
-  'no-relative-import-outside-package': noRelativeImportOutsidePackage,
-  'no-disable-monorepo-no-relative-rule': noDisableMonorepoNoRelativeRule,
-  'no-self-package-import': noSelfPackageImport,
-} satisfies Record<string, Rule.RuleModule>
+	"no-package-outside-import": noPackageOutsideImport,
+	"no-package-self-import": noPackageSelfImport,
+} satisfies Record<string, Rule.RuleModule>;
 
-const plugin = { rules } as const
+const plugin = { rules } as const;
 
 const recommendedRules = {
-  'monorepo-guard/no-relative-import-outside-package': 'error',
-  'monorepo-guard/no-disable-monorepo-no-relative-rule': 'error',
-  'monorepo-guard/no-self-package-import': 'error',
-} satisfies Linter.RulesRecord
+	"monorepo-guard/no-package-outside-import": "error",
+	"monorepo-guard/no-package-self-import": "error",
+} satisfies Linter.RulesRecord;
 
 const configs = {
-  recommended: {
-    plugins: { 'monorepo-guard': plugin },
-    rules: recommendedRules,
-  } satisfies Linter.Config,
-}
+	recommended: {
+		plugins: { "monorepo-guard": plugin },
+		rules: recommendedRules,
+	} satisfies Linter.Config,
+};
 
-export default { ...plugin, configs }
+export const monorepoGuard = { ...plugin, configs };

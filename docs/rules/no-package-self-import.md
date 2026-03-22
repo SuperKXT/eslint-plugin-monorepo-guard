@@ -1,4 +1,4 @@
-# Prevent self-referencing package imports (`no-self-package-import`)
+# Prevent self-referencing package imports (`no-package-self-import`)
 
 This rule prevents a package from importing itself by its own package name. This commonly happens when a monorepo package is also listed as a dependency of itself, or when a developer reaches for the public package name instead of a relative path while working inside the package.
 
@@ -53,7 +53,7 @@ export default [
   {
     plugins: { 'monorepo-guard': monorepoGuard },
     rules: {
-      'monorepo-guard/no-self-package-import': 'error',
+      'monorepo-guard/no-package-self-import': 'error',
     },
   },
 ]
