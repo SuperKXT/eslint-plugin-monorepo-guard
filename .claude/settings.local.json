@@ -1,0 +1,27 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(node -e:*)",
+			"Bash(grep:*)",
+			"Bash(echo *)",
+			"Bash(npm info *)",
+			"Bash(npm view:*)",
+			"Bash(pnpm view *)",
+			"Bash(pnpm turbo:*)",
+			"Bash(pnpm --version)",
+			"Bash(pnpm typecheck:*)",
+			"Bash(pnpm build:*)",
+			"Bash(pnpm test:*)",
+			"Bash(gh api:*)",
+			"Bash(gh search:*)",
+			"Bash(gh issue:*)",
+			"WebFetch(domain:raw.githubusercontent.com)",
+			"WebFetch(domain:github.com)",
+			"WebFetch(domain:shopify.github.io)",
+			"WebFetch(domain:registry.npmjs.org)",
+			"WebFetch(domain:biomejs.dev)",
+			"WebFetch(domain:oxc.rs)",
+			"WebFetch(domain:api.github.com)"
+		]
+	}
+}
