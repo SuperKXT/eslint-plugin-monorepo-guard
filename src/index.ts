@@ -11,7 +11,7 @@ const rules = {
 
 const plugin = {
 	meta: {
-		name: "eslint-plugin-monorepo-guard",
+		name: pkg.name,
 		version: pkg.version,
 	},
 	rules,
