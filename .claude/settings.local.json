@@ -21,7 +21,8 @@
 			"WebFetch(domain:registry.npmjs.org)",
 			"WebFetch(domain:biomejs.dev)",
 			"WebFetch(domain:oxc.rs)",
-			"WebFetch(domain:api.github.com)"
+			"WebFetch(domain:api.github.com)",
+			"WebFetch(domain:eslint.org)"
 		]
 	}
 }

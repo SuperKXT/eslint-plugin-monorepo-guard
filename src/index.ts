@@ -13,6 +13,7 @@ const plugin = {
 	meta: {
 		name: pkg.name,
 		version: pkg.version,
+		namespace: "monorepo-guard",
 	},
 	rules,
 } as const;
@@ -30,3 +31,5 @@ const configs = {
 };
 
 export const monorepoGuard = { ...plugin, configs };
+
+export default monorepoGuard;
