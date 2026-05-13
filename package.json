@@ -18,10 +18,11 @@
 		"eslint-plugin-unused-imports": "4.4.1",
 		"globals": "17.6.0",
 		"prettier": "3.8.3",
+		"syncpack": "15.1.2",
 		"tsup": "8.5.1",
 		"typescript": "6.0.3",
 		"typescript-eslint": "8.59.3",
-		"vitest": "2.0.0"
+		"vitest": "4.1.6"
 	},
 	"engines": {
 		"node": "^18.18.0 || ^20.9.0 || >=21.1.0"
@@ -70,8 +71,9 @@
 	},
 	"scripts": {
 		"build": "tsup",
-		"format": "pnpm dlx syncpack format && prettier --write --log-level silent .",
+		"format": "syncpack format && prettier --write --log-level silent .",
 		"lint": "eslint . --max-warnings=0 --fix && pnpm format && pnpm spellcheck",
+		"lint-ci": "syncpack format --check && pnpm spellcheck && prettier --check . && tsc && pnpm typecheck && pnpm test && eslint --max-warnings=0 *.{js,cjs,ts} && pnpm build",
 		"prepublishOnly": "pnpm typecheck && pnpm build && pnpm test",
 		"spellcheck": "cspell . --quiet",
 		"test": "vitest run",
