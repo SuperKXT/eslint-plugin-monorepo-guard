@@ -21,6 +21,7 @@
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
 		"resolveJsonModule": true,
+		"types": ["node"],
 
 		// emit
 		"noEmit": true,
