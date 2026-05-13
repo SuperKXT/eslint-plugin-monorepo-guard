@@ -1,5 +1,5 @@
 {
-	"words": ["turborepo", "syncpack", "saad"],
+	"words": ["turborepo", "syncpack", "saad", "unrs", "esbuild"],
 	"ignorePaths": [
 		"package-lock.json",
 		"pnpm-lock.yaml",
