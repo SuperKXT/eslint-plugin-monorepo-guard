@@ -61,10 +61,6 @@ export const noPackageOutsideImport: Rule.RuleModule = {
 
 		return {
 			ImportDeclaration(node) {
-				// importKind is a TypeScript parser extension; absent means value import
-				const importKind = (node as unknown as { importKind?: string })
-					.importKind;
-				if (importKind === "type") return;
 				check(node as unknown as Rule.Node, node.source.value as string);
 			},
 			CallExpression(node) {

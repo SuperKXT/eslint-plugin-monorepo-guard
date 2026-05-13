@@ -14,6 +14,7 @@ Packages should be isolated units. Using a relative path to reach into a sibling
 // Crossing into a sibling package via a relative path:
 import something from "../some-other-package/something.js";
 import { util } from "../../shared/helpers";
+import type { SomeType } from '../some-other-package'
 
 const x = require("../some-other-package/something.js");
 ```
@@ -24,17 +25,14 @@ const x = require("../some-other-package/something.js");
 // packages/my-package/src/index.js
 
 // Import the sibling package by its registered name:
-import something from '@pkg/some-other-package'
-import { util } from '@pkg/shared'
+import something from "@pkg/some-other-package";
+import { util } from "@pkg/shared";
 
-const x = require('@pkg/some-other-package')
+const x = require("@pkg/some-other-package");
 
 // Relative imports within the same package are fine:
-import { helper } from './helper'
-import { thing } from '../other-module/thing'
-
-// TypeScript type-only imports are always allowed:
-import type { SomeType } from '../some-other-package'
+import { helper } from "./helper";
+import { thing } from "../other-module/thing";
 ```
 
 ## When to use

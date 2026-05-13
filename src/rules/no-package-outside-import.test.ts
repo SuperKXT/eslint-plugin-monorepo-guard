@@ -74,12 +74,6 @@ describe("no-package-outside-import", () => {
 				code: "const x = require('lodash')",
 				filename: MY_PACKAGE_FILE,
 			},
-			// TypeScript type-only import crossing the boundary — allowed (erased at compile time)
-			{
-				code: "import type { SomeType } from '../../other-package'",
-				filename: MY_PACKAGE_FILE,
-				languageOptions: { parser: tsParser },
-			},
 		],
 
 		invalid: [
@@ -120,6 +114,21 @@ describe("no-package-outside-import", () => {
 						messageId: "outsidePackage",
 						data: {
 							importPath: "../other-package/file",
+							packageName: "my-package",
+						},
+					},
+				],
+			},
+			// TypeScript type-only import crossing the boundary
+			{
+				code: "import type { SomeType } from '../../other-package'",
+				filename: MY_PACKAGE_FILE,
+				languageOptions: { parser: tsParser },
+				errors: [
+					{
+						messageId: "outsidePackage",
+						data: {
+							importPath: "../../other-package",
 							packageName: "my-package",
 						},
 					},
