@@ -35,6 +35,8 @@
 			"Bash(pnpm test:*)",
 			"Bash(pnpm lint:*)",
 			"Bash(pnpm eslint *)",
+			"Bash(pnpm spellcheck *)",
+			"Bash(pnpm tsc *)",
 			"Bash(pnpm --filter @pkg/* exec vitest run)",
 			"Bash(npx eslint:*)",
 			"Bash(npx knip *)",

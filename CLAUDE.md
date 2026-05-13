@@ -2,7 +2,7 @@
 
 ## Dependency Management
 
-Always use exact versions and pnpm catalogs — never write a version directly in `package.json`. See `.claude/docs/monorepo-structure.md` for the catalog selection guide and workflow.
+Always use exact versions.
 
 ## Current Development Focus
 
