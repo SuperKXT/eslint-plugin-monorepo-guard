@@ -75,6 +75,7 @@
 		"lint": "eslint . --max-warnings=0 --fix && pnpm format && pnpm spellcheck",
 		"lint-ci": "syncpack format --check && pnpm spellcheck && prettier --check . && tsc && pnpm typecheck && pnpm test && eslint --max-warnings=0 *.{js,cjs,ts} && pnpm build",
 		"prepublishOnly": "pnpm typecheck && pnpm build && pnpm test",
+		"release": "VERSION=$(node -p \"require('./package.json').version\") && gh release create \"v$VERSION\" --generate-notes --draft && gh release view \"v$VERSION\" --web",
 		"spellcheck": "cspell . --quiet",
 		"test": "vitest run",
 		"test:watch": "vitest",
