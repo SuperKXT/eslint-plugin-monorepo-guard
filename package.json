@@ -19,7 +19,7 @@
 		"globals": "17.6.0",
 		"prettier": "3.8.3",
 		"syncpack": "15.1.2",
-		"tsup": "8.5.1",
+		"tsdown": "0.22.0",
 		"typescript": "6.0.3",
 		"typescript-eslint": "8.59.3",
 		"vitest": "4.1.6"
@@ -30,8 +30,8 @@
 	"exports": {
 		".": {
 			"import": {
-				"types": "./build/index.d.ts",
-				"default": "./build/index.js"
+				"types": "./build/index.d.mts",
+				"default": "./build/index.mjs"
 			},
 			"require": {
 				"types": "./build/index.d.cts",
@@ -70,7 +70,7 @@
 		"url": "https://github.com/SuperKXT/eslint-plugin-monorepo-guard"
 	},
 	"scripts": {
-		"build": "tsup",
+		"build": "tsdown",
 		"format": "syncpack format && prettier --write --log-level silent .",
 		"lint": "eslint . --max-warnings=0 --fix && pnpm format && pnpm spellcheck",
 		"lint-ci": "syncpack format --check && pnpm spellcheck && prettier --check . && tsc && pnpm typecheck && pnpm test && eslint --max-warnings=0 *.{js,cjs,ts} && pnpm build",
@@ -82,5 +82,5 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"type": "module",
-	"types": "./build/index.d.ts"
+	"types": "./build/index.d.mts"
 }
