@@ -60,7 +60,7 @@
 	],
 	"license": "MIT",
 	"main": "./build/index.cjs",
-	"packageManager": "pnpm@10.32.1",
+	"packageManager": "pnpm@11.1.0",
 	"peerDependencies": {
 		"eslint": ">=9.0.0"
 	},
