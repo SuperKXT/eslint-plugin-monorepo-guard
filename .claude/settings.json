@@ -1,0 +1,71 @@
+{
+	"enableAllProjectMcpServers": true,
+	"hooks": {
+		"PostToolUse": [
+			{
+				"matcher": "Write|Edit",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "node -e \"let d=''; process.stdin.on('data',c=>d+=c); process.stdin.on('end',()=>process.stdout.write(JSON.parse(d).tool_input.file_path))\" | { read -r f; pnpm eslint --fix \"$f\" 2>/dev/null || true; pnpm cspell --quiet \"$f\" || true; pnpm prettier --write --log-level error \"$f\" 2>/dev/null || true; }",
+						"timeout": 60,
+						"statusMessage": "Linting and formatting..."
+					}
+				]
+			}
+		]
+	},
+	"permissions": {
+		"allow": [
+			"Read(//tmp/**)",
+			"Bash(node -e:*)",
+			"Bash(grep:*)",
+			"Bash(echo *)",
+			"Bash(npm info *)",
+			"Bash(npm view:*)",
+			"Bash(npm list *)",
+			"Bash(npm show *)",
+			"Bash(pnpm view *)",
+			"Bash(pnpm list *)",
+			"Bash(pnpm install *)",
+			"Bash(pnpm turbo:*)",
+			"Bash(pnpm --version)",
+			"Bash(pnpm typecheck:*)",
+			"Bash(pnpm build:*)",
+			"Bash(pnpm test:*)",
+			"Bash(pnpm lint:*)",
+			"Bash(pnpm eslint *)",
+			"Bash(pnpm spellcheck *)",
+			"Bash(pnpm tsc *)",
+			"Bash(pnpm --filter @pkg/* exec vitest run)",
+			"Bash(npx eslint:*)",
+			"Bash(npx knip *)",
+			"Bash(npx --yes @knip/mcp --help)",
+			"Bash(npx tsc:*)",
+			"Bash(npx vitest:*)",
+			"Bash(gh api:*)",
+			"Bash(gh search:*)",
+			"Bash(gh issue:*)",
+			"Bash(gh pr:*)",
+			"WebFetch(domain:raw.githubusercontent.com)",
+			"WebFetch(domain:github.com)",
+			"WebFetch(domain:shopify.github.io)",
+			"WebFetch(domain:registry.npmjs.org)",
+			"WebFetch(domain:biomejs.dev)",
+			"WebFetch(domain:docs.expo.dev)",
+			"WebFetch(domain:expo.dev)",
+			"WebFetch(domain:knip.dev)",
+			"WebFetch(domain:oxc.rs)",
+			"WebFetch(domain:pnpm.io)",
+			"WebFetch(domain:api.github.com)",
+			"WebFetch(domain:eslint.org)",
+			"WebFetch(domain:eslint-react.xyz)",
+			"WebFetch(domain:www.npmjs.com)",
+			"WebFetch(domain:www.eslint-react.xyz)",
+			"WebFetch(domain:marketplace.visualstudio.com)",
+			"WebSearch",
+			"Skill(update-config)",
+			"Skill(update-config:*)"
+		]
+	}
+}

@@ -1,5 +1,7 @@
 # eslint-plugin-monorepo-guard
 
+[![npm](https://img.shields.io/npm/v/eslint-plugin-monorepo-guard)](https://www.npmjs.com/package/eslint-plugin-monorepo-guard)
+
 ESLint rules to enforce package boundaries in a monorepo.
 
 Requires:
