@@ -13,6 +13,7 @@ Requires:
 
 | Rule                                                                   | Description                                            | Recommended |
 | ---------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
+| [`no-package-entry-import`](docs/rules/no-package-entry-import.md)     | Prevent a package from importing its own entry file    | ✅          |
 | [`no-package-outside-import`](docs/rules/no-package-outside-import.md) | Prevent relative imports that cross a package boundary | ✅          |
 | [`no-package-self-import`](docs/rules/no-package-self-import.md)       | Prevent a package from importing itself by name        | ✅          |
 
