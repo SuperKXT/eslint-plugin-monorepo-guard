@@ -118,3 +118,12 @@ import { helper } from "../other-module/helper";
 ## License
 
 MIT
+
+
+## Use of AI
+
+This project heavily makes use of AI tools for all aspects of development.
+I am not very familiar with ESLint plugins, and did not have the time to catch up on it.
+I created this plugin because I did not find any existing plugins that met my needs.
+While I manually review the code, I am adding this disclaimer for transparency.
+Do with this information what you will.
