@@ -119,7 +119,6 @@ import { helper } from "../other-module/helper";
 
 MIT
 
-
 ## Use of AI
 
 This project heavily makes use of AI tools for all aspects of development.
